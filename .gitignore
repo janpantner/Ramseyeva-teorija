@@ -1,1 +1,7 @@
 Navodila
+*.aux
+*.fdb*
+*.fls
+*.log
+*.syn*
+*.thm
