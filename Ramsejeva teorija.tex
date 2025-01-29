@@ -9,19 +9,21 @@
 \usepackage{units}
 % Po potrebi se lahk dodajo drugi standardni paketi, ki ne spreminjajo izgleda dokumenta
 
+\usepackage{tikz}
+\usepackage{amsmath}
 
 \begin{document}
 
-\MAT{1}{10}{2023}
-\naslov{Slovenski naslov}
+\MAT{1}{12}{2025}
+\naslov{Ramseyeva teorija}
 
-\avtor{Ime avtorja}
+\avtor{Jan Pantner}
 
 \institucija{Fakulteta za matematiko in fiziko \\ Univerza v Ljubljani}
 
-\klasifikacija{~} 
+\klasifikacija{05D10} 
 \izvlecek{Povzetek v slovenščini}
-\title{Angleški naslov}
+\title{Ramsey theory}
 \abstract{Povzetek v angleščini.}
 
 \glava\baselineskip=14.5pt
@@ -30,7 +32,272 @@
 
 \section{Uvod}
 
-\section{Poglavje}
+Ramseyeva teorija govori o particijah velikih struktur. Tipičen rezultat nam pove, da 
+se mora v neki particiji dovolj velike strukture pojaviti neka specifična podstruktura. Na primer, 
+če povezave dovolj velikega polnega grafa pobarvamo z nekaj barvami, mora nujno obstajati 
+monokromatičen trikotnik (v tem primeru imamo particijo povezav na različne barve, 
+osnovna struktura so povezave grafa, iskana podstruktura pa monokromatičen trikotnik).
 
+Da zgornje res drži, nam zagotovi Ramseyev izrek, ki je nekakšna ``večdimenzionalna'' posplošitev 
+Dirichletovega principa, ki tudi sam preučuje particije struktur (na primer razdelitev golobov v
+golobnjake).
+
+Bolj filozofsko, Ramseyeva teorija pove da ne gleda na to, kako kaotičen je nek sistem, 
+bodo znotraj sistema vedno obstajali urejeni deli.
+
+\section{Osnovni rezultati}
+\begin{zgled}
+    Ali med poljubnimi šestimi ljudmi vedno obstajajo trije, ki se med seboj
+    poznajo, ali trije, ki se med seboj ne poznajo?
+
+    Poglejmo enega izmed teh ljudi. Brez škode za splošnost po Dirichletovem principu med 
+    ostalimi petimi obstajajo trije, ki jih pozna. Če se poljubna dva med temi tremi poznata, 
+    imamo tri ljudi, ki se med seboj poznajo. Sicer se ti trije med seboj ne poznajo, odgovor je 
+    torej v obeh primerih pritrdilen.
+\end{zgled}
+
+Zgornji zgled je eden izmed enostavnejših rezultatov Ramseyeve teorije, vendar v nadaljevanju,
+za lažje razumevanje, izjave raje formuliramo v jeziku teorije grafov in ne socialne interakcije.
+
+Kot zanimivost lahko omenimo, da se Ramsey v 
+resnici ni ukvarjal niti z grafi niti s socialnimi interakcijami, temveč z logiko. Izrek, po katerem 
+je najbolj znan, je dokazal kot manjšo lemo na poti k popolnoma drugačnim rezultatom. Večina zgodnjega razvoja 
+Ramseyeve teorije se je zgodila šele po njegovi smrti pri ranih $26$-tih letih. Za zgodnji razvoj je 
+med drugimi v veliki meri zaslužen eden najznamenitejših matematikov 20.~stoletja 
+Paul~Erdős.
+
+\begin{izrek}[Ramsey]
+    Za poljubni naravni števili $r$ in $s$ obstaja najmanjše takšno naravno število 
+    $n = R(r,s)$, da velja naslednje: Če povezave polnega grafa $K_n$ pobarvamo z dvema barvama, 
+    zagotovo obstaja poln podgraf moči $r$, v katerem so vse povezave prve barve ali pa poln 
+    podgraf moči $s$, v katerem so vse povezave druge barve.
+\end{izrek}
+
+Številu $R(r, s)$ pravimo \emph{Ramseyevo število}.
+Alternativna formulacija zgornjega izreka bi bila, da vsak graf na $n$ točkah vsebuje 
+bodisi kliko moči $r$ bodisi antikliko moči $s$.
+Dokaz te verzije izreka izpustimo, izrek !!!! predstavlja splošnejšo verzijo.
+
+\begin{zgled}
+    Določimo $R(3,3)$ in $R(3, 4)$.
+
+    Pokazali smo že, da velja $R(3, 3) \le 6$ (ljudi predstavimo z vozlišči, poznanstva pa z barvo povezave). Za dokaz spodnje meje si poglejmo 
+    sliko \ref{fig:r33}.
+    \begin{figure}[h!]
+        \centering
+        \newcommand\size{1}
+        \begin{tikzpicture}[scale=2]
+            \draw[thick,blue]  (18:\size) \foreach \a in {90,162,234,306} { -- (\a:\size) } -- cycle;
+            \draw[thick,red] (18:\size) \foreach \a in {162,306,90,234} { -- (\a:\size) } -- cycle;
+            \foreach \a in {18,90,162,234,306} { \node[black,fill=black,circle,inner sep=1.5pt] at (\a:\size){}; }
+        \end{tikzpicture}
+        \caption{Barvanje $K_{5}$ z dvema barvama.}
+        \label{fig:r33}
+    \end{figure}
+    Opazimo, da barvanje nima monokromatičnega trikotnika, torej $R(3, 3) > 5$. Skupaj smo dokazali 
+    $R(3,3) = 6$.
+
+    Slika \ref{fig:r34} prikazuje barvanje $K_{8}$ z rdečo in modro barvo, 
+    ki nima rdečih trikotnikov in nima modrih klik velikosti $4$. Sledi $R(3, 4) > 8$. 
+    \begin{figure}[h!]
+        \centering
+        \newcommand\size{1}
+        \begin{tikzpicture}[scale=2]
+            \draw[thick,blue]  (0:\size) \foreach \a in {0,45,90,135,180,225,270,315} { -- (\a:\size) } -- cycle;
+            \draw[thick,blue]  (0:\size) \foreach \a in {0,90,180,270} { -- (\a:\size) } -- cycle;
+            \draw[thick,blue]  (45:\size) \foreach \a in {45,135,225,315} { -- (\a:\size) } -- cycle;
+            \draw[thick,red] (0:\size) \foreach \a in {0,135,270,45,180,315,90,225} { -- (\a:\size) } -- cycle;
+            \draw[thick,red] (0:\size) \foreach \a in {0,180} { -- (\a:\size) } -- cycle;
+            \draw[thick,red] (45:\size) \foreach \a in {45,225} { -- (\a:\size) } -- cycle;
+            \draw[thick,red] (90:\size) \foreach \a in {90,270} { -- (\a:\size) } -- cycle;
+            \draw[thick,red] (135:\size) \foreach \a in {135,315} { -- (\a:\size) } -- cycle;
+            \foreach \a in {0,45,90,135,180,225,270,315} { \node[black,fill=black,circle,inner sep=1.5pt] at (\a:\size){}; }
+        \end{tikzpicture}
+
+        \caption{Barvanje $K_{8}$ z dvema barvama.}
+        \label{fig:r34}
+    \end{figure}
+
+    Pokažimo, da velja $R(3, 4) = 9$. Recimo, da imamo barvanje $K_9$ z rdečo in modro 
+    barvo, ki ne vsebuje rdečega trikotnika in ne vsebuje modre klike moči $4$. Poglejmo 
+    si neko vozlišče $v_0$. 
+    \begin{itemize}
+        \item Recimo, da je vozlišče $v_0$ vsebovano v vsaj šestih modrih povezavah. Zaradi 
+        prejšnjega dela naloge lahko med temi šestimi vozlišči najdemo tri vozlišča,
+        ki tvorijo moder trikotnik. Skupaj z vozliščem $v_0$ tedaj tvorijo modro kliko moči 
+        $4$.
+
+        \item Recimo, da je vozlišče $v_0$ vsebovano v vsaj štirih rdečih povezavah. Če 
+        med temi štirimi vozlišči (ki so z $v_0$ povezana z rdečo povezavo) ni nobene 
+        rdeče povezave, tvorijo modro kliko moči $4$. Če obstajata med njimi vozlišči, 
+        ki sta povezani z rdečo povezavo, tedaj skupaj z $v_0$ tvorita rdeč trikotnik.
+    \end{itemize}
+    
+    Edina preostala možnost je, da je vsako vozlišče vsebovano v natanko treh rdečih povezavah. 
+    V tem primeru podgraf, vpet na rdečih povezavah, krši lemo o rokovanju.
+\end{zgled}
+
+\section{Dokaz Ramseyevega izreka}
+
+\begin{izrek}[Ramsey]
+    Naj bo $r \ge 1$ in $a_1, a_2 \ge r$. Tedaj obstaja najmanjše takšno naravno število 
+    $N(a_1, a_2; r)$, da velja naslednje: Če v množici $S$ moči $n \ge N(a_1, a_2; r)$
+    vse $r$-podmnožice pobarvamo z barvo $1$ ali $2$, potem obstaja takšna $a_1$-podmnožica, 
+    da so vse njene $r$-podmnožice barve $1$, ali pa obstaja takšna $a_2$-podmnožica, da so 
+    vse njene $r$-podmnožice barve $2$. \label{ramsey}
+\end{izrek}
+
+\begin{dokaz}
+    Uporabimo dvojno indukcijo, po $r$ in še po $a_1 + a_2$. 
+    V primeru $r = 1$ velja $N(a_1, a_2; 1) = a_1 + a_2 -1$. Recimo, da je $a_1 \ge a_2$. Potem je 
+    $N(a_1, a_2; a_2) = a_1$. Sedaj predpostavimo, da izrek velja za $r-1$ in ga dokažimo za $r$.
+    Naj bo
+    \begin{align*}
+        a_1' &:= N(a_1 - 1, a_2; r), \\
+        a_2' &:= N(a_1, a_2 -1; 4).
+    \end{align*}
+    %Naj bo $S$ množica moči več kot $N(a_1', a_2'; r-1) + 1$. Vse podmnožice $S$ pobarvamo z 
+    %barvo $1$ ali barvo $2$. Naj bo $a \in S$ in $S' := S \setminus \set{a}$. Barvanje $S'$ je 
+    %usklajeno z barvanjem $S$ tako, da je barva $X \subseteq S'$ enaka barvi $X \cap \set{a}$ v $S$.
+
+    %Ker velja $\abs{S'} \ge N(a_1', a_2';r-1)$, brez škode za splošnost obstaja $a_1'$-podmnožica $A$ 
+    %množice $S'$, v kateri so vse $(r-1)$-podmnožice barve $1$. Velja $\abs{A} = a' = N(a_1-1,a_2;r)$.
+    %Sedaj ločimo dva primera.
+    %\begin{itemize}
+    %    \item Recimo, da v $A$ obstaja $a_2$-podmnožica, v kateri so vse $r$-podmnožice barve $2$.
+    %    \item Recimo, da v $A$ obstaja $(a_1-1)$-podmnožica $A'$, v kateri so vse $r$-podmnožice barve $1$. 
+    %    Tedaj definiramo
+    %    \[
+    %        A'' := A' \cap \set{a}.
+    %    \]
+    %    Velja $\abs{A''} = a_1$. Ker je barvanje $S' \supseteq A'$ usklajeno z barvanjem $S \supseteq A$, 
+    %    so vse $r$ podmnožice v $A''$ barve $1$.
+    %\end{itemize}
+    V obeh primerih smo izpolnili zahtevan pogoj, torej izrek velja tudi za $r$. \hfill $\blacksquare$
+\end{dokaz}
+
+Naslednja trditev je zanimiv geometrijski rezultat, katerega dokaz 
+temelji na posplošeni verziji Ramseyevega izreka. 
+
+\begin{trditev}[Erdős-Szekeres 1935]
+    Za vsak $n \in \mathbb{N}$ obstaja tako število $N(n)$, da velja: Če imamo v ravnini $N \ge N(n)$
+    točk v splošni legi, potem med njimi obstaja $n$ točk, ki določajo konveksen $n$-kotnik.
+\end{trditev}
+
+Najprej dokažimo naslednjo geometrijsko lemo.
+\begin{lema}
+    Množica $n$ točk v ravnini tvori konveksen $n$-kotnik natanko tedaj, kadar
+    vsaka podmnožica štirih točk tvori konveksen $4$-kotnik.
+\end{lema}
+\begin{dokaz}
+    Poglejmo konveksno ogrinjačo točk. Če točke tvorijo konveksen $n$-kotnik, potem vsake 
+    štiri tvorijo konveksen štirikotnik. Nasprotno, recimo, da točke ne tvorijo konveksnega 
+    $n$-kotnika. Potem obstaja točka znotraj ogrinjače. Če ogrinjačo trianguliramo, bo ta 
+    točka znotraj nekega trikotnika in skupaj z oglišči trikotnika ne bo tvorila 
+    konveksnega $4$-kotnika. \hfill $\blacksquare$
+\end{dokaz}
+
+\noindent\textit{Dokaz trditve.}
+    Naj bo $N \ge N(n) := R(n,n;3)$. Točke označimo z $1, 2, \dots, N$. 
+    Poglejmo poljuben trikotnik in njegova oglišča označimo z $i$, $j$, $k$ tako, da $i < j < k$. Če je 
+    trikotnik $IJK$ pozitivno orientiran, ga pobarvamo s prvo barvo, sicer z drugo.
+
+    Ker je $N \ge N(n,n;3)$, brez škode za splošnost obstaja $n$-podmnožica, v kateri so 
+    vsi trikotniki prve barve. Dokažimo, da ta množica tvori konveksen $n$-kotnik. Predpostavimo 
+    nasportno in uporabimo lemo. Torej obstajajo štiri točke, ki ne tvorijo konveksnega 
+    štirikotnika. Če pogledamo orientacije trikotnikov na teh štirih vozliščih, pridemo do 
+    protislovja s tem, da so vsi trikotniki iste barve. \hfill $\blacksquare$
+
+\section{O računski zahtevnosti} 
+
+Iskanje točnih vrednosti Ramseyevih števil hitro postane zelo zahtevno in nedosegljivo današnji 
+tehnologiji. Tabela \ref{tab:meje} prikazuje trenutne znane vrednosti in meje za Ramseyeva števila
+$R(r, s)$. 
+
+\begin{table}[h!]%[H]
+    \centering
+    \begin{tabular}{|c||c|c|c|c|c|c|c|c|}\hline
+    $R(r,s)$ & 3 & 4  & 5     & 6     & 7     & 8     & 9       & 10     \\\hline \hline
+    3 & 6 & 9  & 14    & 18    & 23    & 28    & 36      & 40-41  \\\hline
+    4 &   & 18 & 25    & 36-40 & 49-58 & 59-79 & 73-105 & 92-135 \\\hline
+    5 &   &    & 43-46 & 59-85 & 80-133 & 101-193 & 133-282 & 149-381\\\hline
+    \end{tabular}
+    \caption{Znane vrednosti/meje za Ramseyeva števila $R(r, s)$.}
+    \label{tab:meje}
+\end{table}
+Najnovejša sprememba v tabeli se je zgodila decembra leta $2023$, ko je bil objavljen 
+članek, v katerem je pokazano $R(3, 10) \le 41$. 
+O tem rezultatu govori \cite{r41}.
+
+Vidimo, da je v resnici znanih zelo malo Ramseyevih števil. Če želimo dokazati, 
+da je $R(s, t) = N$, moramo najti ustrezno barvanje povezav grafa $K_{N-1}$ in pokazati, da 
+vsa barvanja povezav grafa $K_{N}$ ustrezajo nekemu pogoju. V teoriji bi lahko uporabili računalnik 
+in preverili vsa možna barvanja za zaporedne $n$, dokler ne najdemo prvega $N$, pri katerem vsako 
+barvanje zadošča zahtevanemu pogoju. Že v primeru dveh barv postane število barvanj zelo hitro 
+nepredstavljivo veliko. V primeru, ko imamo več kot dve barvi ali pa v primeru $R(s, t; r)$, kjer $r > 2$, je znanega še
+veliko manj.
+
+\section{Zgornje in spodnje meje}
+
+V tem razdelku dokažemo nekaj zgornjih in spodnjih mej za Ramseyeva števila.
+
+\begin{trditev}
+    Naj bosta $a_1,a_2 \ge 2$. Velja
+    \[
+        N(a_1, a_2; 2) \le \binom{a_1 + a_2 -2}{a_1-1}.
+    \]
+\end{trditev}
+
+\begin{dokaz}
+    Uporabimo indukcijo. Velja
+    \[
+        N(a_1, 2; 2) = a_1 = \binom{a_1+2-2}{a_1-1}
+    \]
+    in podobno za $N(2,a_2; 2)$. Direktno iz dokaza 
+    Ramseyevega izreka sledi
+    \begin{equation}
+        R(a_1, a_2; r) \le N(N(a_1-1,a_2;r), N(a_1,a_2-1;r);r-1) + 1.
+        \label{eq:meja}
+    \end{equation}
+    Za dokaz indukcijskega koraka nazadnje upoštevamo še $N(a_1,a_2;1) = a_1 + a_2 - 1$ in dobimo
+    \begin{align*}
+        N(a_1, a_2; 2) &\overset{\eqref{eq:meja}}{\le} N(N(a_1-1,a_2;2), N(a_1,a_2-1;2);1) +1\\
+        &= (N(a_1-1,a_2;2) + N(a_1,a_2-1; 2) - 1) + 1 \\
+        &\overset{{\text{IP}}}{\le} \binom{a_1 + a_2 -3}{a_1-2} + \binom{a_1 + a_2 -3}{a_1-1} \\
+        &=\binom{a_1+a_2-2}{a_1-1},
+    \end{align*}
+    kjer zadnja enakost velja zaradi rekurzivne formule za binomski koeficient. \hfill $\blacksquare$
+\end{dokaz}
+
+%%%% ERDOS 
+
+
+\begin{izrek}[Erdős]
+    
+\end{izrek}
+
+\begin{dokaz}
+    \hfill $\blacksquare$
+\end{dokaz}
+
+% Dolga leta bla bla bla --- > izboljšava??
+
+
+% Stvari iz zapiskov predavanja na GimB
+% Erdosova probabilistična spodnja meja
+\begin{thebibliography}{99}
+    \bibitem{r41} V.~Angeltveit, \emph{R(3,10) <= 41}, 2024, arXiv: 2401.00392 [math.CO].
+    \bibitem{west} D.~B.~West, \emph{Introduction to Graph Theory}, Prentice Hall, 2001.
+    \bibitem{citekey} \emph{Ramsey's theorem}, Wipedia, https://en.wikipedia.org/wiki/Ramsey's\_theorem, Pridobljeno: 28.~1.~2025
+    
+%\bibitem{7} E.A. Cornell, C.E. Wieman, M.R. Matthews, J.R. Ensher in M.H. Anderson, \emph{Observation of Bose-Einstein Condensation in a Dilute Atomic Vapor}, Science \textbf{269} (1995), 198--201. 
+%\bibitem{6} W. Ketterle, D.M. Kurn, D.S. Durfee, N.J. van Druten, M.R. Andrews, M.-O. Mewes in K.B. Davis, \emph{Bose-Einstein Condensation in a Gas of Sodium Atoms}, Physics Review Letters \textbf{75} (1995), 3969--3973. 
+%\bibitem{3} J. Klaers, J. Schmitt, F. Vewinger in M. Weitz, \emph{Bose-Einstein condensation of photons in an optical microcavity}, Nature \textbf{468} (2010), 545--548. 
+%\bibitem{10} T. Giamarchi, C. R\"uegg in O. Tchernyshyov, \emph{Bose-Einstein condensation in magnetic insulators}, Nature Physics \textbf{4} (2008), 198--204. 
+%\bibitem{1} J.F. Annett, \emph{Superconductivity, Superfluids and Condensates}, Oxford University Press, 2004.
+%\bibitem{8} L. Lewin, \emph{Polylogarithms and Associated Functions}, Elsevier Science Ltd., 1981. 
+%\bibitem{9} H. Wagner in N.D. Mermin, \emph{Absence of Ferromagnetism or Antiferromagnetism in One- or Two-Dimensional Isotropic Heisenberg Models}, Physics Review Letters  \textbf{17} (1996), 1133--1136.
+%\bibitem{2} J. Klaers, F. Vewinger in M. Weitz, \emph{Thermalization of a two-dimensional photonic gas in a ‘white-wall’ photon box}, Nature Physics \textbf{6} (2010), 512--515.
+\end{thebibliography}
 
 \end{document}
