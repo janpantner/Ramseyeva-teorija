@@ -26,9 +26,15 @@
 \institucija{Fakulteta za matematiko in fiziko \\ Univerza v Ljubljani}
 
 \klasifikacija{05D10} 
-\izvlecek{Povzetek v slovenščini}
+\izvlecek{Članek obravnava osnovne pojme Ramseyeve teorije kot 
+so Ramseyeva števila, grafovska Ramseyeva števila, Schurova števila in 
+``The Happy End Problem''. Med drugim, dokaže Ramseyev izrek in nekaj zgornjih ter spodnjih mej za 
+Ramseyevo število $R(r, s)$.}
 \title{Ramsey theory}
-\abstract{Povzetek v angleščini.}
+\abstract{The article discusses the basic concepts of Ramsey theory, 
+such as Ramsey numbers, graph Ramsey numbers, Schur numbers, and 
+The Happy End Problem. Among other results, it proves Ramsey's theorem and presents some upper 
+and lower bounds for the Ramsey number $R(r,s)$.}
 
 \glava\baselineskip=14.5pt
 
@@ -74,7 +80,7 @@ Ramseyeve teorije se je zgodila šele po njegovi smrti pri ranih $26$-tih letih.
 med drugimi v veliki meri zaslužen eden najznamenitejših matematikov 20.~stoletja 
 Paul~Erdős.
 
-\begin{izrek}[Ramsey]
+\begin{izrek}[Ramsey] \label{izrek:ramseyosnovni}
     Za poljubni naravni števili $r$ in $s$ obstaja najmanjše takšno naravno število 
     $n = R(r,s)$, da velja naslednje: Če povezave polnega grafa $K_n$ pobarvamo z dvema barvama, 
     zagotovo obstaja poln podgraf moči $r$, v katerem so vse povezave prve barve ali pa poln 
@@ -132,17 +138,17 @@ Dokaz te verzije izreka izpustimo, izrek \ref{izrek:ramsey} je splošnejši.
     \end{figure}
 
     Pokažimo, da velja $R(3, 4) = 9$. Recimo, da imamo barvanje $K_9$ z rdečo in modro 
-    barvo, ki ne vsebuje rdečega trikotnika in ne vsebuje modre klike moči $4$. Poglejmo 
+    barvo, ki ne vsebuje rdečega trikotnika in ne vsebuje modre klike moči štiri. Poglejmo 
     si neko vozlišče $v_0$. 
     \begin{itemize}
         \item Recimo, da je vozlišče $v_0$ vsebovano v vsaj šestih modrih povezavah. Zaradi 
-        prejšnjega dela naloge lahko med temi šestimi vozlišči najdemo tri vozlišča,
-        ki tvorijo moder trikotnik. Skupaj z vozliščem $v_0$ tedaj tvorijo modro kliko moči 
-        $4$.
+        prejšnjega dela zgleda lahko med temi šestimi vozlišči najdemo tri vozlišča,
+        ki tvorijo mmonokromatičen trikotnik. Če je slednji moder, skupaj z vozliščem $v_0$ tvori modro kliko moči 
+        štiri, sicer pa imamo rdeč trikotnik.
 
         \item Recimo, da je vozlišče $v_0$ vsebovano v vsaj štirih rdečih povezavah. Če 
         med temi štirimi vozlišči (ki so z $v_0$ povezana z rdečo povezavo) ni nobene 
-        rdeče povezave, tvorijo modro kliko moči $4$. Če obstajata med njimi vozlišči, 
+        rdeče povezave, tvorijo modro kliko moči štiri. Če obstajata med njimi vozlišči, 
         ki sta povezani z rdečo povezavo, tedaj skupaj z $v_0$ tvorita rdeč trikotnik.
     \end{itemize}
     
@@ -150,7 +156,8 @@ Dokaz te verzije izreka izpustimo, izrek \ref{izrek:ramsey} je splošnejši.
     V tem primeru podgraf, vpet na rdečih povezavah, krši lemo o rokovanju.
 \end{zgled}
 
-Eden izmed načinov, kako posplošiti Ramseyev izrek, je, da dodamo več barv. 
+Eden izmed načinov, kako posplošiti Ramseyev izrek, je, da dodamo več barv. To prikazuje 
+naslednji zgled. 
 
 \begin{zgled}
     Določimo $R(3, 3, 3)$.
@@ -164,14 +171,14 @@ Eden izmed načinov, kako posplošiti Ramseyev izrek, je, da dodamo več barv.
     \begin{figure}[h!]
         \centering
         \includegraphics[scale=0.3]{r333.png}
-        \caption{Barvanje $K_{16}$ s tremi barvanji, ki ne vsebuje monokromatičnega trikotnika. \cite{r333}}
+        \caption{Barvanje $K_{16}$ s tremi barvanji, ki ne vsebuje monokromatičnega trikotnika. Vir: \cite{r333}}
         \label{fig:r333}
     \end{figure}
 \end{zgled}
 
 \section{Dokaz Ramseyevega izreka}
 
-\begin{izrek}[Ramsey] \label{izrek:ramseyosnovni}
+\begin{izrek}[Ramsey]
     Naj bo $r \ge 1$ in $a_1, a_2 \ge r$. Tedaj obstaja najmanjše takšno naravno število 
     $N(a_1, a_2; r)$, da velja naslednje: Če v množici $S$ moči $n \ge N(a_1, a_2; r)$
     vse $r$-podmnožice pobarvamo z barvo $1$ ali $2$, potem obstaja takšna $a_1$-podmnožica, 
@@ -208,7 +215,7 @@ Eden izmed načinov, kako posplošiti Ramseyev izrek, je, da dodamo več barv.
     V obeh primerih smo izpolnili zahtevan pogoj, torej izrek velja tudi za $r$. \hfill $\blacksquare$
 \end{dokaz}
 
-V posebnem primeru $r = 2$ se izrek \ref{izrek:ramsey} zreducira 
+V posebnem primeru $r = 2$, se izrek \ref{izrek:ramsey} zreducira 
 na izrek \ref{izrek:ramseyosnovni}.
 
 Naslednja trditev je zanimiv geometrijski rezultat, ki ga lahko dokažemo 
@@ -235,7 +242,7 @@ Najprej dokažimo naslednjo geometrijsko lemo.
 \noindent\textit{Dokaz trditve.}
     Naj bo $N \ge N(n) := R(n,n;3)$. Točke označimo z $1, 2, \dots, N$. 
     Poglejmo poljuben trikotnik in njegova oglišča označimo z $i$, $j$, $k$ tako, da $i < j < k$. Če je 
-    trikotnik $IJK$ pozitivno orientiran, ga pobarvamo s prvo barvo, sicer z drugo.
+    trikotnik $ijk$ pozitivno orientiran, ga pobarvamo s prvo barvo, sicer z drugo.
 
     Ker je $N \ge N(n,n;3)$, brez škode za splošnost obstaja $n$-podmnožica, v kateri so 
     vsi trikotniki prve barve. Dokažimo, da ta množica tvori konveksen $n$-kotnik. Predpostavimo 
@@ -344,8 +351,6 @@ V tem razdelku dokažemo nekaj zgornjih in spodnjih mej za Ramseyeva števila.
 \end{dokaz}
 
 Ta rezultat je Erdős v \cite{erdos} predstavil že leta $1947$.
-
-% Dolga leta bla bla bla --- > izboljšava??
 
 %\section{O računski zahtevnosti} 
 
@@ -508,11 +513,14 @@ matematični dokaz v smislu porabljenega prostora -- potrebna sta bila
 kar dva petabyta podatkov. Problem je bil odprt več kot stoletje, več 
 o dokazu pa se nahaja v \cite{schur}.
 
-\begin{izrek}
-    Fermat mod p? TO DO
-\end{izrek}
+%\begin{izrek}
+%    Fermat mod p? TO DO
+%\end{izrek}
 
 \section{Zaključek}
+Ramseyeva teorija je še vedno zelo aktualno področje, v 
+katerem letno prihaja do novih spoznanj. 
+V članku smo predstavili nekaj osnovnih pojmov in rezultatov.
 
 \begin{thebibliography}{99}
     \bibitem{r41} V.~Angeltveit, \emph{R(3,10) <= 41}, 2024, arXiv:2401.00392 [math.CO].
@@ -522,8 +530,8 @@ o dokazu pa se nahaja v \cite{schur}.
     \bibitem{color} A.~Soifer, \emph{The Mathematical Coloring Book: Mathematics of Coloring and the Colorful Life of its Creators},
     Springer, 2009.
     \bibitem{west} D.~B.~West, \emph{Introduction to Graph Theory}, Prentice Hall, 2001.
-    \bibitem{r333} https://upload.wikimedia.org/wikipedia/commons/5/51/K\_16\_partitioned\_into\_three\_Clebsch\_graphs.svg, pridobljeneno 29.~1.~2025.
-    \bibitem{wiki} \emph{Ramsey's theorem}, Wipedia, https://en.wikipedia.org/wiki/Ramsey's\_theorem, pridobljeno: 28.~1.~2025.
+    \bibitem{r333} \emph{Clebsch graph}, Wikipedia, Spletna stran: https://en.wikipedia.org/wiki/Clebsch\_graph, ogled 29.~1.~2025.
+    \bibitem{wiki} \emph{Ramsey's theorem}, Wipedia, Spletna stran: https://en.wikipedia.org/wiki/Ramsey's\_theorem, ogled: 28.~1.~2025.
 \end{thebibliography}
 
 \end{document}
