@@ -240,11 +240,31 @@ Najprej dokažimo naslednjo geometrijsko lemo.
     Ker je $N \ge N(n,n;3)$, brez škode za splošnost obstaja $n$-podmnožica, v kateri so 
     vsi trikotniki prve barve. Dokažimo, da ta množica tvori konveksen $n$-kotnik. Predpostavimo 
     nasportno in uporabimo lemo. Torej obstajajo štiri točke, ki ne tvorijo konveksnega 
-    štirikotnika. Če pogledamo orientacije trikotnikov na teh štirih vozliščih, pridemo do 
-    protislovja s tem, da so vsi trikotniki iste barve. \hfill $\blacksquare$
+    štirikotnika. %Če pogledamo orientacije trikotnikov na teh štirih vozliščih, pridemo do 
+    %protislovja s tem, da so vsi trikotniki iste barve. \hfill $\blacksquare$
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}[scale=1.5]
+        \draw (0,-0.423) node[black,fill=black,circle,inner sep=1.5pt,label=below:$l$]{};
+        \draw (-1,-1) node[black,fill=black,circle,inner sep=1.5pt,label=left:$j$]{};
+        \draw (1,-1) node[black,fill=black,circle,inner sep=1.5pt,label=right:$k$]{};
+        \draw (0,0.732) node[black,fill=black,circle,inner sep=1.5pt,label=$i$]{};
+        \draw (0,-0.423) -- (-1,-1) -- (1,-1) -- (0,-0.423) -- (0,0.732) -- (-1,-1);
+        \draw (1,-1) -- (0,0.732);
+    \end{tikzpicture}
+    \caption{Štiri točke, ki ne tvorijo konveksnega štirikotnika.}
+    \label{fig:happy}
+\end{figure}
+    Naj bodo te štiri točke $i$, $j$, $k$ in $l$ -- kot jih prikazuje slika \ref{fig:happy}. 
+    Brez škode za splošnost naj velja $i < j < k$. Ker so vsi trikotniki prve barve, nam 
+    trikotnik $ijk$ pove $i < l < k$. Zaradi trikotnika 
+    trikotnika $ijl$ sledi $i < j < l$ ali $l < i < j$. Slednja možnost je v 
+    protislovju z $i < l < k$, torej velja $i < j < l$. Skupaj 
+    smo dobili $i < j < l < k$, to pa je v protislovju z barvo trikotnika 
+    $ljk$. \hfill $\blacksquare$
 
-Izrek \ref{izrek:happyend} je osnovni rezultat o tako imenovanem 
-``The Happy End Problem''. Več o tem problemu se nahaja v \cite[poglavje 29]{color}.
+Izrek \ref{izrek:happyend} je osnovni rezultat povezan z problemom znanim 
+kot ``The Happy End Problem''. Več o tem se nahaja v \cite[poglavje 29]{color}.
 
 \section{Meje za Ramseyeva števila}
 
