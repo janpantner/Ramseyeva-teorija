@@ -11,13 +11,13 @@
 % Po potrebi se lahk dodajo drugi standardni paketi, ki ne spreminjajo izgleda dokumenta
 \usepackage{tikz}
 \usepackage{amsmath}
+\usepackage{float}
 \providecommand{\set}[1]{\left\{#1\right\}}
 \providecommand{\setb}[2]{\left\{#1~\middle\vert~#2\right\}}
 \providecommand{\abs}[1]{\left\lvert #1\right\rvert}
 \providecommand{\floor}[1]{\left\lfloor #1\right\rfloor}
 
 \begin{document}
-
 \MAT{1}{12}{2025}
 \naslov{Ramseyeva teorija}
 
@@ -42,7 +42,7 @@ and lower bounds for the Ramsey number $R(r,s)$.}
 
 \section{Uvod}
 
-Ramseyeva teorija govori o particijah velikih struktur. Tipičen rezultat nam pove, da 
+\hspace{\parindent}Ramseyeva teorija govori o particijah velikih struktur. Tipičen rezultat nam pove, da 
 se mora v neki particiji dovolj velike strukture pojaviti neka specifična podstruktura. Na primer, 
 če povezave dovolj velikega polnega grafa pobarvamo z nekaj barvami, mora nujno obstajati 
 monokromatičen trikotnik (v tem primeru imamo particijo povezav na različne barve, 
@@ -52,11 +52,11 @@ Da zgornje res drži, nam zagotovi Ramseyev izrek, ki je nekakšna ``večdimenzi
 Dirichletovega principa, ki tudi sam preučuje particije struktur (na primer razdelitev golobov v
 golobnjake).
 
-Bolj filozofsko, Ramseyeva teorija pove da ne gleda na to, kako kaotičen je nek sistem, 
-bodo znotraj sistema vedno obstajali urejeni deli.
+Bolj filozofsko, Ramseyeva teorija pove, da bodo ne gleda na to, kako kaotičen je nek sistem, 
+znotraj sistema vedno obstajali urejeni deli.
 
-Rezultati v članku so večinoma povzeti po \cite{west} in \cite{color}. V \cite{color} je 
-predstavljano tudi zgodovinsko ozadje razvoja Ramseyeve teorije.
+Rezultati v članku so večinoma povzeti po \cite{color} in \cite{west}. V \cite{color} je 
+predstavljeno tudi zgodovinsko ozadje razvoja Ramseyeve teorije.
 
 \section{Osnovni rezultati}
 \begin{zgled}
@@ -83,7 +83,7 @@ Paul~Erdős.
 \begin{izrek}[Ramsey] \label{izrek:ramseyosnovni}
     Za poljubni naravni števili $r$ in $s$ obstaja najmanjše takšno naravno število 
     $n = R(r,s)$, da velja naslednje: Če povezave polnega grafa $K_n$ pobarvamo z dvema barvama, 
-    zagotovo obstaja poln podgraf moči $r$, v katerem so vse povezave prve barve ali pa poln 
+    zagotovo obstaja poln podgraf moči $r$, v katerem so vse povezave prve barve, ali pa poln 
     podgraf moči $s$, v katerem so vse povezave druge barve.
 \end{izrek}
 
@@ -101,6 +101,9 @@ Dokaz te verzije izreka izpustimo, izrek \ref{izrek:ramsey} je splošnejši.
 
     Pokazali smo že, da velja $R(3, 3) \le 6$ (ljudi predstavimo z vozlišči, poznanstva pa z barvo povezave). Za dokaz spodnje meje si poglejmo 
     sliko \ref{fig:r33}.
+    Opazimo, da barvanje nima monokromatičnega trikotnika, torej $R(3, 3) > 5$. Skupaj smo dokazali 
+    $R(3,3) = 6$.
+
     \begin{figure}[h!]
         \centering
         \newcommand\size{1}
@@ -112,8 +115,6 @@ Dokaz te verzije izreka izpustimo, izrek \ref{izrek:ramsey} je splošnejši.
         \caption{Barvanje $K_{5}$ z dvema barvama, ki ne vsebuje monokromatičnega trikotnika.}
         \label{fig:r33}
     \end{figure}
-    Opazimo, da barvanje nima monokromatičnega trikotnika, torej $R(3, 3) > 5$. Skupaj smo dokazali 
-    $R(3,3) = 6$.
 
     Slika \ref{fig:r34} prikazuje barvanje $K_{8}$ z rdečo in modro barvo, 
     ki nima rdečih trikotnikov in nima modrih klik velikosti $4$. Sledi $R(3, 4) > 8$. 
@@ -215,7 +216,7 @@ naslednji zgled.
     V obeh primerih smo izpolnili zahtevan pogoj, torej izrek velja tudi za $r$. \hfill $\blacksquare$
 \end{dokaz}
 
-V posebnem primeru $r = 2$, se izrek \ref{izrek:ramsey} zreducira 
+V posebnem primeru $r = 2$ se izrek \ref{izrek:ramsey} zreducira 
 na izrek \ref{izrek:ramseyosnovni}.
 
 Naslednja trditev je zanimiv geometrijski rezultat, ki ga lahko dokažemo 
@@ -249,33 +250,34 @@ Najprej dokažimo naslednjo geometrijsko lemo.
     nasportno in uporabimo lemo. Torej obstajajo štiri točke, ki ne tvorijo konveksnega 
     štirikotnika. %Če pogledamo orientacije trikotnikov na teh štirih vozliščih, pridemo do 
     %protislovja s tem, da so vsi trikotniki iste barve. \hfill $\blacksquare$
-\begin{figure}[h!]
-    \centering
-    \begin{tikzpicture}[scale=1.5]
-        \draw (0,-0.423) node[black,fill=black,circle,inner sep=1.5pt,label=below:$l$]{};
-        \draw (-1,-1) node[black,fill=black,circle,inner sep=1.5pt,label=left:$j$]{};
-        \draw (1,-1) node[black,fill=black,circle,inner sep=1.5pt,label=right:$k$]{};
-        \draw (0,0.732) node[black,fill=black,circle,inner sep=1.5pt,label=$i$]{};
-        \draw (0,-0.423) -- (-1,-1) -- (1,-1) -- (0,-0.423) -- (0,0.732) -- (-1,-1);
-        \draw (1,-1) -- (0,0.732);
-    \end{tikzpicture}
-    \caption{Štiri točke, ki ne tvorijo konveksnega štirikotnika.}
-    \label{fig:happy}
-\end{figure}
+
     Naj bodo te štiri točke $i$, $j$, $k$ in $l$ -- kot jih prikazuje slika \ref{fig:happy}. 
     Brez škode za splošnost naj velja $i < j < k$. Ker so vsi trikotniki prve barve, nam 
-    trikotnik $ijk$ pove $i < l < k$. Zaradi trikotnika 
-    trikotnika $ijl$ sledi $i < j < l$ ali $l < i < j$. Slednja možnost je v 
-    protislovju z $i < l < k$, torej velja $i < j < l$. Skupaj 
+    trikotnik $ijk$ pove $i < l < k$. Zaradi trikotnika  $ijl$ sledi $i < j < l$ 
+    ali $l < i < j$. Slednja možnost je v protislovju z $i < l < k$, torej velja $i < j < l$. Skupaj 
     smo dobili $i < j < l < k$, to pa je v protislovju z barvo trikotnika 
     $ljk$. \hfill $\blacksquare$
 
-Izrek \ref{izrek:happyend} je osnovni rezultat povezan z problemom znanim 
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}[scale=1.5]
+            \draw (0,-0.423) node[black,fill=black,circle,inner sep=1.5pt,label=below:$l$]{};
+            \draw (-1,-1) node[black,fill=black,circle,inner sep=1.5pt,label=left:$j$]{};
+            \draw (1,-1) node[black,fill=black,circle,inner sep=1.5pt,label=right:$k$]{};
+            \draw (0,0.732) node[black,fill=black,circle,inner sep=1.5pt,label=$i$]{};
+            \draw (0,-0.423) -- (-1,-1) -- (1,-1) -- (0,-0.423) -- (0,0.732) -- (-1,-1);
+            \draw (1,-1) -- (0,0.732);
+        \end{tikzpicture}
+        \caption{Štiri točke, ki ne tvorijo konveksnega štirikotnika.}
+        \label{fig:happy}
+    \end{figure}
+
+Izrek \ref{izrek:happyend} je osnovni rezultat, povezan s problemom, znanim 
 kot ``The Happy End Problem''. Več o tem se nahaja v \cite[poglavje 29]{color}.
 
 \section{Meje za Ramseyeva števila}
 
-V tem razdelku dokažemo nekaj zgornjih in spodnjih mej za Ramseyeva števila.
+\hspace{\parindent}V tem razdelku dokažemo nekaj zgornjih in spodnjih mej za Ramseyeva števila.
 
 \begin{trditev}
     Naj bosta $a_1,a_2 \ge 2$. Velja
@@ -316,7 +318,7 @@ V tem razdelku dokažemo nekaj zgornjih in spodnjih mej za Ramseyeva števila.
     brez monokromatičnega $K_k$.
 
     Povezave grafa $K_n$ pobarvamo naključno. Vsako povezavo 
-    neodvisno z verjetnostjo $1/2$ pobarvamo s prvo barvo in 
+    neodvisno, z verjetnostjo $1/2$ pobarvamo s prvo barvo in 
     verjetnostjo $1/2$ z drugo barvo.
     
     V $K_n$ imamo $\binom{n}{k}$ kopij $K_k$. Naj bo $A_i$ dogodek, da 
@@ -325,13 +327,13 @@ V tem razdelku dokažemo nekaj zgornjih in spodnjih mej za Ramseyeva števila.
         \mathbb{P}(A_i) = 2 \cdot \left(\frac{1}{2}\right)^{\binom{k}{2}} = 
         2^{1-\binom{k}{2}}.
     \]
-    Torej je verjetnost, da obstaja monokromatičen $K_k$ enaka 
+    Torej je verjetnost, da obstaja monokromatičen $K_k$, enaka 
     \[
         \mathbb{P}\left(\cup_iA_i\right) = \binom{n}{k}2^{1-\binom{k}{2}}.
     \]
     Če velja $\binom{n}{k}2^{1-\binom{k}{2}} < 1$, je verjetnost, da v 
-    takšnem poljubnem barvanje ni monokromatičnega $K_k$ večja od $0$.
-    Torej obstaja bravanje povezav $K_n$ z dvema barvama brez 
+    takšnem poljubnem barvanju ni monokromatičnega $K_k$, večja od $0$.
+    Torej obstaja barvanje povezav $K_n$ z dvema barvama brez 
     monokromatičnega $K_k$. \hfill $\blacksquare$
 \end{dokaz}
 
@@ -352,15 +354,13 @@ V tem razdelku dokažemo nekaj zgornjih in spodnjih mej za Ramseyeva števila.
 
 Ta rezultat je Erdős v \cite{erdos} predstavil že leta $1947$.
 
-%\section{O računski zahtevnosti} 
-
-Kljub obstoju tudi boljših ocen od zgornjih, %tistih iz prejšnjega razdelka, pa 
+Kljub obstoju tudi boljših ocen od zgornjih,
 iskanje točnih vrednosti Ramseyevih števil hitro postane zelo zahtevno in 
 nedosegljivo današnji tehnologiji. Tabela \ref{tab:meje} prikazuje 
 trenutne znane vrednosti in meje za Ramseyeva števila $R(r, s)$. 
 Razširjeno tabelo bralec najde v \cite{wiki}.
 
-\begin{table}[h!]
+\begin{table}[H]
     \centering
     \begin{tabular}{|c||c|c|c|c|c|c|c|c|}\hline
     $R(r,s)$ & 3 & 4  & 5     & 6     & 7     & 8     & 9       & 10     \\\hline \hline
@@ -371,6 +371,7 @@ Razširjeno tabelo bralec najde v \cite{wiki}.
     \caption{Znane vrednosti/meje za Ramseyeva števila $R(r, s)$.}
     \label{tab:meje}
 \end{table}
+
 Najnovejša sprememba v tabeli se je zgodila decembra leta $2023$, ko je bil objavljen 
 članek, v katerem je pokazano $R(3, 10) \le 41$. 
 O tem rezultatu govori \cite{r41}.
@@ -397,7 +398,7 @@ Obstoj Grafovskega Ramseyevega števila sledi direktno iz izreka \ref{izrek:rams
     Določimo $R(P_4, C_4)$.
     %\textit{Opomba o oznakah:} $P_n$ označuje pot na $n$ vozliščih, $C_n$ pa cikel na $n$ vozliščih.
     Slika \ref{fig:p4c4} prikazuje barvanje, ki ne vsebuje niti $C_4$ rdeče 
-    barve, niti $P_4$ modre barve. Sledi $N(P_4,C_4) > 4$.
+    barve niti $P_4$ modre barve. Sledi $N(P_4,C_4) > 4$.
 
     \begin{figure}[h!]
         \centering
@@ -422,7 +423,7 @@ Obstoj Grafovskega Ramseyevega števila sledi direktno iz izreka \ref{izrek:rams
         \item Recimo, da je $v_0$ v vsaj treh povezavah rdeče barve. Naj bodo to $v_0v_1$, $v_0v_2$
         in $v_0v_3$. Če sta vsaj dve povezavi med $v_1$, $v_2$ in $v_3$ rdeči, imamo 
         rdeč $C_4$. Recimo, da je kvečjemu ena rdeča in brez škode za splošnost $v_1v_2$ in $v_2v_3$ 
-        modri. Če je $v_1v_4$ ali $v_1v_4$ modra, imamo moder $P_4$, sicer pa imamo rdeč $C_4$.
+        modri. Če je $v_1v_4$ ali $v_1v_4$ modra, imamo moder $P_4$, sicer imamo rdeč $C_4$.
     \end{itemize}
 
     Dokazali smo, da velja $R(P_4, C_4) = R(P_4, P_4) = 5$.
@@ -454,7 +455,7 @@ Naslednji izrek je leta $1977$ dokazal Chvátal.
         priključimo takšno vozlišče, da dobimo $T$. \hfill $\blacksquare$
     \end{dokaz}
     Naj bo $n = 1$. Potem za moder $K_1$ ne potrebujemo nobene povezave in je pogoj izpolnjen. 
-    Naj bo sedaj $n > 1$. Predpostavimo, da pogoj naloge velja za $n - 1$. Recimo, da imamo neko $2$-barvanje povezav grafa $K_{(m-1)(n-1)+1}$. 
+    Naj bo sedaj $n > 1$. Predpostavimo, da pogoj naloge velja za $n - 1$. Recimo, da imamo neko barvanje povezav grafa $K_{(m-1)(n-1)+1}$ z dvema barvama. 
     \begin{itemize}
         \item Naj bo $v$ poljubno vozlišče. Če ima $v$ več kot $(m-1)(n-2)$ modrih povezav, potem med temi sosedi 
         po indukcijski predpostavki obstaja bodisi rdeč $T$ bodisi moder $K_{n-1}$. V slednjem 
@@ -487,7 +488,7 @@ Naslednji izrek je leta $1977$ dokazal Chvátal.
     kjer $S_i$ vsebuje natanko tiste elemente, ki so pobarvani z $i$-to barvo.
 
     Konstruirajmo poln graf $G$ na $n+1$ vozliščih, ki jih označimo z
-    $1, 2, \dots, n+1$. Naj bo povezava, ki vsebuje $i$ in $j$ takšne barve $r$,
+    $1, 2, \dots, n+1$. Naj bo povezava, ki vsebuje $i$ in $j$, takšne barve $r$,
     da velja $\abs{i-j} \in S_r$. 
 
     Ker velja $n+1 > n = R_k(3, \dots, 3)$, graf $G$ vsebuje monokromatičen 
@@ -510,15 +511,11 @@ Naslednji izrek je leta $1977$ dokazal Chvátal.
 Trenutno je znanih samo prvih pet Schurovih števil. Zaporedoma so $2$, $5$,
 $14$, $45$ in $161$. Dokaz, da je $S(5) = 161$ iz leta $2017$ je znan največji 
 matematični dokaz v smislu porabljenega prostora -- potrebna sta bila 
-kar dva petabyta podatkov. Problem je bil odprt več kot stoletje, več 
+kar dva petabajta podatkov. Problem je bil odprt več kot stoletje, več 
 o dokazu pa se nahaja v \cite{schur}.
 
-%\begin{izrek}
-%    Fermat mod p? TO DO
-%\end{izrek}
-
 \section{Zaključek}
-Ramseyeva teorija je še vedno zelo aktualno področje, v 
+\hspace{\parindent}Ramseyeva teorija je še vedno zelo aktualno področje, v 
 katerem letno prihaja do novih spoznanj. 
 V članku smo predstavili nekaj osnovnih pojmov in rezultatov.
 
