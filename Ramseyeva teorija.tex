@@ -382,7 +382,19 @@ vsa barvanja povezav grafa $K_{N}$ ustrezajo nekemu pogoju. V teoriji bi lahko u
 in preverili vsa možna barvanja za zaporedne $n$, dokler ne najdemo prvega $N$, pri katerem vsako 
 barvanje zadošča zahtevanemu pogoju. Že v primeru dveh barv postane število barvanj zelo hitro 
 nepredstavljivo veliko. V primeru, ko imamo več kot dve barvi ali pa v primeru $R(s, t; r)$, kjer $r > 2$, je znanega še
-veliko manj.
+veliko manj. 
+
+\begin{primer}
+    Slika \ref{fig:r44} prikazuje barvanje, ki določi strogo spodnjo 
+    mejo za $R(4,4)$. 
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=0.4]{r44.jpg}
+        \caption{Barvanje $K_{17}$ z dvema barvama, ki ne vsebuje monokromatičnega $K_4$. Vir: \cite{r44}}
+        \label{fig:r44}
+    \end{figure}
+\end{primer}
+
 
 \section{Grafovska Ramseyeva števila}
 
@@ -484,7 +496,7 @@ Naslednji izrek je leta $1977$ dokazal Chvátal.
     Naj bo množica $\set{1, 2, \dots, n}$ pobarvana s $k$ barvami. 
     Torej imamo particijo
     \[
-        \set{1, 2, \dots, n} = S_1 \cup S_2 \cup \cdots \cup S_k,
+        \set{1, 2, \dots, n} = S_1 \cup S_2 \cup \dotsb \cup S_k,
     \]
     kjer $S_i$ vsebuje natanko tiste elemente, ki so pobarvani z $i$-to barvo.
 
@@ -528,6 +540,7 @@ V članku smo predstavili nekaj osnovnih pojmov in rezultatov.
     \bibitem{color} A.~Soifer, \emph{The Mathematical Coloring Book: Mathematics of Coloring and the Colorful Life of its Creators},
     Springer, 2009.
     \bibitem{west} D.~B.~West, \emph{Introduction to Graph Theory}, Prentice Hall, 2001.
+    \bibitem{r44} \emph{Breakthrough in Ramsey theory}, Spletna stran: https://anthonybonato.com/breakthrough-in-ramsey-theory/, ogled 17. 3. 2025.
     \bibitem{r333} \emph{Clebsch graph}, Wikipedia, Spletna stran: https://en.wikipedia.org/wiki/Clebsch\_graph, ogled 29.~1.~2025.
     \bibitem{wiki} \emph{Ramsey's theorem}, Wipedia, Spletna stran: https://en.wikipedia.org/wiki/Ramsey's\_theorem, ogled: 28.~1.~2025.
 \end{thebibliography}
