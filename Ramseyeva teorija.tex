@@ -194,7 +194,7 @@ naslednji zgled.
     Naj bo
     \begin{align*}
         a_1' &:= N(a_1 - 1, a_2; r), \\
-        a_2' &:= N(a_1, a_2 -1; 4).
+        a_2' &:= N(a_1, a_2 -1; r).
     \end{align*}
     Naj bo $S$ množica moči več kot $N(a_1', a_2'; r-1) + 1$. Vse podmnožice $S$ pobarvamo z 
     barvo $1$ ali barvo $2$. Naj bo $a \in S$ in $S' := S \setminus \set{a}$. Barvanje $S'$ je 
@@ -409,7 +409,8 @@ Obstoj Grafovskega Ramseyevega števila sledi direktno iz izreka \ref{izrek:rams
             \draw[thick,blue]  (135:\size) \foreach \a in {135,315} { -- (\a:\size) };
             \foreach \a in {45,135,225,315} { \node[black,fill=black,circle,inner sep=1.5pt] at (\a:\size){}; }
         \end{tikzpicture}
-        \caption{Barvanje $K_{5}$ z dvema barvama, ki ne vsebuje monokromatičnega trikotnika.}
+        \caption{Barvanje $K_{4}$ z dvema barvama, ki ne vsebuje niti $C_4$ rdeče 
+        barve niti $P_4$ modre barve.}
         \label{fig:p4c4}
     \end{figure}
 
