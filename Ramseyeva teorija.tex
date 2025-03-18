@@ -181,7 +181,7 @@ naslednji zgled.
 
 \begin{izrek}[Ramsey]
     Naj bo $r \ge 1$ in $a_1, a_2 \ge r$. Tedaj obstaja najmanjše takšno naravno število 
-    $N(a_1, a_2; r)$, da velja naslednje: Če v množici $S$ moči $n \ge N(a_1, a_2; r)$
+    $R(a_1, a_2; r)$, da velja naslednje: Če v množici $S$ moči $n \ge R(a_1, a_2; r)$
     vse $r$-podmnožice pobarvamo z barvo $1$ ali $2$, potem obstaja takšna $a_1$-podmnožica, 
     da so vse njene $r$-podmnožice barve $1$, ali pa obstaja takšna $a_2$-podmnožica, da so 
     vse njene $r$-podmnožice barve $2$. \label{izrek:ramsey}
@@ -189,19 +189,19 @@ naslednji zgled.
 
 \begin{dokaz}
     Uporabimo dvojno indukcijo, po $r$ in še po $a_1 + a_2$. 
-    V primeru $r = 1$ velja $N(a_1, a_2; 1) = a_1 + a_2 -1$. Recimo, da je $a_1 \ge a_2$. Potem je 
-    $N(a_1, a_2; a_2) = a_1$. Sedaj predpostavimo, da izrek velja za $r-1$ in ga dokažimo za $r$.
+    V primeru $r = 1$ velja $R(a_1, a_2; 1) = a_1 + a_2 -1$. Recimo, da je $a_1 \ge a_2$. Potem je 
+    $R(a_1, a_2; a_2) = a_1$. Sedaj predpostavimo, da izrek velja za $r-1$ in ga dokažimo za $r$.
     Naj bo
     \begin{align*}
-        a_1' &:= N(a_1 - 1, a_2; r), \\
-        a_2' &:= N(a_1, a_2 -1; r).
+        a_1' &:= R(a_1 - 1, a_2; r), \\
+        a_2' &:= R(a_1, a_2 -1; r).
     \end{align*}
-    Naj bo $S$ množica moči več kot $N(a_1', a_2'; r-1) + 1$. Vse podmnožice $S$ pobarvamo z 
+    Naj bo $S$ množica moči več kot $R(a_1', a_2'; r-1) + 1$. Vse podmnožice $S$ pobarvamo z 
     barvo $1$ ali barvo $2$. Naj bo $a \in S$ in $S' := S \setminus \set{a}$. Barvanje $S'$ je 
     usklajeno z barvanjem $S$ tako, da je barva $X \subseteq S'$ enaka barvi $X \cap \set{a}$ v $S$.
 
-    Ker velja $\abs{S'} \ge N(a_1', a_2';r-1)$, brez škode za splošnost obstaja $a_1'$-podmnožica $A$ 
-    množice $S'$, v kateri so vse $(r-1)$-podmnožice barve $1$. Velja $\abs{A} = a' = N(a_1-1,a_2;r)$.
+    Ker velja $\abs{S'} \ge R(a_1', a_2';r-1)$, brez škode za splošnost obstaja $a_1'$-podmnožica $A$ 
+    množice $S'$, v kateri so vse $(r-1)$-podmnožice barve $1$. Velja $\abs{A} = a' = R(a_1-1,a_2;r)$.
     Sedaj ločimo dva primera.
     \begin{itemize}
         \item Recimo, da v $A$ obstaja $a_2$-podmnožica, v kateri so vse $r$-podmnožice barve $2$.
@@ -245,7 +245,7 @@ Najprej dokažimo naslednjo geometrijsko lemo.
     Poglejmo poljuben trikotnik in njegova oglišča označimo z $i$, $j$, $k$ tako, da $i < j < k$. Če je 
     trikotnik $ijk$ pozitivno orientiran, ga pobarvamo s prvo barvo, sicer z drugo.
 
-    Ker je $N \ge N(n,n;3)$, brez škode za splošnost obstaja $n$-podmnožica, v kateri so 
+    Ker je $N \ge R(n,n;3)$, brez škode za splošnost obstaja $n$-podmnožica, v kateri so 
     vsi trikotniki prve barve. Dokažimo, da ta množica tvori konveksen $n$-kotnik. Predpostavimo 
     nasportno in uporabimo lemo. Torej obstajajo štiri točke, ki ne tvorijo konveksnega 
     štirikotnika. %Če pogledamo orientacije trikotnikov na teh štirih vozliščih, pridemo do 
@@ -282,25 +282,25 @@ kot ``The Happy End Problem''. Več o tem se nahaja v \cite[poglavje 29]{color}.
 \begin{trditev}
     Naj bosta $a_1,a_2 \ge 2$. Velja
     \[
-        N(a_1, a_2; 2) \le \binom{a_1 + a_2 -2}{a_1-1}.
+        R(a_1, a_2; 2) \le \binom{a_1 + a_2 -2}{a_1-1}.
     \]
 \end{trditev}
 
 \begin{dokaz}
     Uporabimo indukcijo. Velja
     \[
-        N(a_1, 2; 2) = a_1 = \binom{a_1+2-2}{a_1-1}
+        R(a_1, 2; 2) = a_1 = \binom{a_1+2-2}{a_1-1}
     \]
-    in podobno za $N(2,a_2; 2)$. Direktno iz dokaza 
+    in podobno za $R(2,a_2; 2)$. Direktno iz dokaza 
     izreka \ref{izrek:ramsey} sledi
     \begin{equation}
-        R(a_1, a_2; r) \le N(N(a_1-1,a_2;r), N(a_1,a_2-1;r);r-1) + 1.
+        R(a_1, a_2; r) \le R(R(a_1-1,a_2;r), R(a_1,a_2-1;r);r-1) + 1.
         \label{eq:meja}
     \end{equation}
-    Za dokaz indukcijskega koraka nazadnje upoštevamo še $N(a_1,a_2;1) = a_1 + a_2 - 1$ in dobimo
+    Za dokaz indukcijskega koraka nazadnje upoštevamo še $R(a_1,a_2;1) = a_1 + a_2 - 1$ in dobimo
     \begin{align*}
-        N(a_1, a_2; 2) &\overset{\eqref{eq:meja}}{\le} N(N(a_1-1,a_2;2), N(a_1,a_2-1;2);1) +1\\
-        &= (N(a_1-1,a_2;2) + N(a_1,a_2-1; 2) - 1) + 1 \\
+        R(a_1, a_2; 2) &\overset{\eqref{eq:meja}}{\le} R(R(a_1-1,a_2;2), R(a_1,a_2-1;2);1) +1\\
+        &= (R(a_1-1,a_2;2) + R(a_1,a_2-1; 2) - 1) + 1 \\
         &\overset{{\text{IP}}}{\le} \binom{a_1 + a_2 -3}{a_1-2} + \binom{a_1 + a_2 -3}{a_1-1} \\
         &=\binom{a_1+a_2-2}{a_1-1},
     \end{align*}
@@ -398,7 +398,7 @@ Obstoj Grafovskega Ramseyevega števila sledi direktno iz izreka \ref{izrek:rams
     Določimo $R(P_4, C_4)$.
     %\textit{Opomba o oznakah:} $P_n$ označuje pot na $n$ vozliščih, $C_n$ pa cikel na $n$ vozliščih.
     Slika \ref{fig:p4c4} prikazuje barvanje, ki ne vsebuje niti $C_4$ rdeče 
-    barve niti $P_4$ modre barve. Sledi $N(P_4,C_4) > 4$.
+    barve niti $P_4$ modre barve. Sledi $R(P_4,C_4) > 4$.
 
     \begin{figure}[h!]
         \centering
@@ -414,7 +414,7 @@ Obstoj Grafovskega Ramseyevega števila sledi direktno iz izreka \ref{izrek:rams
         \label{fig:p4c4}
     \end{figure}
 
-    Pokažimo, da je $N(P_4, C_4) \le 5$. Naj bodo $\set{v_0, v_1, v_2, v_3, v_4}$ vozlišča
+    Pokažimo, da je $R(P_4, C_4) \le 5$. Naj bodo $\set{v_0, v_1, v_2, v_3, v_4}$ vozlišča
     $K_5$, katerega povezave pobarvamo z rdečo in modro barvo.
     \begin{itemize}
         \item Recimo, da je $v_0$ v vsaj dveh povezavah modre barve -- $v_0v_1$ in $v_0v_2$. Če je
