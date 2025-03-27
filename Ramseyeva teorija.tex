@@ -3,7 +3,7 @@
 \usepackage[slovene]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\usepackage[frame]{matrika}
+\usepackage[frame,enotno]{matrika}
 \usepackage{mathtools}
 \usepackage{epstopdf}
 \usepackage{units}
@@ -52,7 +52,7 @@ Da zgornje res drži, nam zagotovi Ramseyev izrek, ki je nekakšna ``večdimenzi
 Dirichletovega principa, ki tudi sam preučuje particije struktur (na primer razdelitev golobov v
 golobnjake).
 
-Bolj filozofsko, Ramseyeva teorija pove, da bodo ne gleda na to, kako kaotičen je nek sistem, 
+Bolj filozofsko, Ramseyeva teorija pove, da bodo ne glede na to, kako kaotičen je nek sistem, 
 znotraj sistema vedno obstajali urejeni deli.
 
 Rezultati v članku so večinoma povzeti po \cite{color} in \cite{west}. V \cite{color} je 
@@ -69,7 +69,7 @@ predstavljeno tudi zgodovinsko ozadje razvoja Ramseyeve teorije.
     torej v obeh primerih pritrdilen.
 \end{zgled}
 
-Zgornji zgled je eden izmed enostavnejših rezultatov Ramseyeve teorije, vendar v nadaljevanju,
+Zgornji zgled je eden izmed enostavnejših rezultatov Ramseyeve teorije, vendar v nadaljevanju
 za lažje razumevanje, izjave raje formuliramo v jeziku teorije grafov in ne socialne interakcije.
 
 Kot zanimivost lahko omenimo, da se Ramsey v 
@@ -77,7 +77,7 @@ resnici ni ukvarjal niti z grafi niti s socialnimi interakcijami, temveč z logi
 je najbolj znan, je dokazal kot manjšo lemo na poti k popolnoma drugačnim rezultatom. Več 
 o Ramseyu se nahaja v \cite[poglavje 30]{color}. Večina zgodnjega razvoja 
 Ramseyeve teorije se je zgodila šele po njegovi smrti pri ranih $26$-tih letih. Za zgodnji razvoj je 
-med drugimi v veliki meri zaslužen eden najznamenitejših matematikov 20.~stoletja 
+med drugimi v veliki meri zaslužen eden najznamenitejših matematikov 20.~stoletja, 
 Paul~Erdős.
 
 \begin{izrek}[Ramsey] \label{izrek:ramseyosnovni}
@@ -144,7 +144,7 @@ Dokaz te verzije izreka izpustimo, izrek \ref{izrek:ramsey} je splošnejši.
     \begin{itemize}
         \item Recimo, da je vozlišče $v_0$ vsebovano v vsaj šestih modrih povezavah. Zaradi 
         prejšnjega dela zgleda lahko med temi šestimi vozlišči najdemo tri vozlišča,
-        ki tvorijo mmonokromatičen trikotnik. Če je slednji moder, skupaj z vozliščem $v_0$ tvori modro kliko moči 
+        ki tvorijo monokromatičen trikotnik. Če je slednji moder, skupaj z vozliščem $v_0$ tvori modro kliko moči 
         štiri, sicer pa imamo rdeč trikotnik.
 
         \item Recimo, da je vozlišče $v_0$ vsebovano v vsaj štirih rdečih povezavah. Če 
@@ -162,7 +162,7 @@ naslednji zgled.
 
 \begin{zgled}
     Določimo $R(3, 3, 3)$.
-    Enostavno je pokazati $R(3,3,3) < 17$. Poglejmo vozlišče $v_0$. Brez škode za splošnost je vsebovano v vsaj šestih povezavah rdeče 
+    Enostavno je pokazati $R(3,3,3) \le 17$. Poglejmo vozlišče $v_0$. Brez škode za splošnost je vsebovano v vsaj šestih povezavah rdeče 
     barve. Če je med temi šestimi vozlišči kakšna povezava rdeče barve, smo končali, 
     sicer pa upoštevamo $R(3, 3) = 6$.
 
@@ -198,7 +198,7 @@ naslednji zgled.
     \end{align*}
     Naj bo $S$ množica moči več kot $R(a_1', a_2'; r-1) + 1$. Vse podmnožice $S$ pobarvamo z 
     barvo $1$ ali barvo $2$. Naj bo $a \in S$ in $S' := S \setminus \set{a}$. Barvanje $S'$ je 
-    usklajeno z barvanjem $S$ tako, da je barva $X \subseteq S'$ enaka barvi $X \cap \set{a}$ v $S$.
+    usklajeno z barvanjem $S$ tako, da je barva $X \subseteq S'$ enaka barvi $X \cup \set{a}$ v $S$.
 
     Ker velja $\abs{S'} \ge R(a_1', a_2';r-1)$, brez škode za splošnost obstaja $a_1'$-podmnožica $A$ 
     množice $S'$, v kateri so vse $(r-1)$-podmnožice barve $1$. Velja $\abs{A} = a' = R(a_1-1,a_2;r)$.
@@ -208,7 +208,7 @@ naslednji zgled.
         \item Recimo, da v $A$ obstaja $(a_1-1)$-podmnožica $A'$, v kateri so vse $r$-podmnožice barve $1$. 
         Tedaj definiramo
         \[
-            A'' := A' \cap \set{a}.
+            A'' := A' \cup \set{a}.
         \]
         Velja $\abs{A''} = a_1$. Ker je barvanje $S' \supseteq A'$ usklajeno z barvanjem $S \supseteq A$, 
         so vse $r$ podmnožice v $A''$ barve $1$.
@@ -216,11 +216,11 @@ naslednji zgled.
     V obeh primerih smo izpolnili zahtevan pogoj, torej izrek velja tudi za $r$. \hfill $\blacksquare$
 \end{dokaz}
 
-V posebnem primeru $r = 2$ se izrek \ref{izrek:ramsey} zreducira 
+V posebnem primeru $r = 2$ se izrek \ref{izrek:ramsey} reducira 
 na izrek \ref{izrek:ramseyosnovni}.
 
-Naslednja trditev je zanimiv geometrijski rezultat, ki ga lahko dokažemo 
-s pomočjo izreka \ref{izrek:ramsey}. 
+Naslednji izrek je zanimiv geometrijski rezultat, ki ga lahko dokažemo 
+s pomočjo izreka \ref{izrek:ramsey}.
 
 \begin{izrek}[Erdős-Szekeres] \label{izrek:happyend}
     Za vsak $n \in \mathbb{N}$ obstaja tako število $N(n)$, da velja: Če imamo v ravnini $N \ge N(n)$
@@ -240,7 +240,7 @@ Najprej dokažimo naslednjo geometrijsko lemo.
     konveksnega $4$-kotnika. \hfill $\blacksquare$
 \end{dokaz}
 
-\noindent\textit{Dokaz trditve.}
+\noindent\textit{Dokaz izreka.}
     Naj bo $N \ge N(n) := R(n,n;3)$. Točke označimo z $1, 2, \dots, N$. 
     Poglejmo poljuben trikotnik in njegova oglišča označimo z $i$, $j$, $k$ tako, da $i < j < k$. Če je 
     trikotnik $ijk$ pozitivno orientiran, ga pobarvamo s prvo barvo, sicer z drugo.
@@ -383,7 +383,7 @@ barvanje zadošča zahtevanemu pogoju. Že v primeru dveh barv postane število 
 nepredstavljivo veliko. V primeru, ko imamo več kot dve barvi ali pa v primeru $R(s, t; r)$, kjer $r > 2$, je znanega še
 veliko manj. 
 
-\begin{primer}
+\begin{zgled}
     Slika \ref{fig:r44} prikazuje barvanje $K_{17}$ z dvema barvama, ki ne vsebuje monokromatičnega $K_4$, torej 
     pokaže $R(4, 4) > 17$.
     \begin{figure}[h!]
@@ -392,7 +392,7 @@ veliko manj.
         \caption{Barvanje $K_{17}$ z dvema barvama, ki ne vsebuje monokromatičnega $K_4$. Vir: \cite{r44}}
         \label{fig:r44}
     \end{figure}
-\end{primer}
+\end{zgled}
 
 \section{Grafovska Ramseyeva števila}
 
@@ -443,7 +443,7 @@ Obstoj Grafovskega Ramseyevega števila sledi direktno iz izreka \ref{izrek:rams
 Naslednji izrek je leta $1977$ dokazal Chvátal.
 
 \begin{izrek}[Chvátal]
-    Naj bo $T$ drevo na $m$ vozliščih. Dokažite, da je $R(T, K_n) = (m-1)(n-1)+1$.    
+    Naj bo $T$ drevo na $m$ vozliščih. Potem je $R(T, K_n) = (m-1)(n-1)+1$.    
 \end{izrek}
 
 \begin{dokaz}
@@ -461,12 +461,12 @@ Naslednji izrek je leta $1977$ dokazal Chvátal.
         Lemo dokažemo s pomočjo indukcije na $m$. V primeru $m=2$ je pogoj izpolnjen. Naj bo 
         $T$ drevo na $m > 2$ vozliščih in predpostavimo, da lema velja za $m-1$. Naj bo $H$ 
         graf z minimalno stopnjo vsaj $m-1$ in $T$ drevo na $m$ vozliščih. Naj bo $v$ list drevesa. 
-        Tedaj $H$ vsebuje $S = T - u$. Velja $\abs{S} = {m-1}$, torej je vsako vozlišče 
+        Tedaj $H$ vsebuje $S = T - v$. Velja $\abs{S} = {m-1}$, torej je vsako vozlišče 
         $v \in S$ povezano s kakšnim vozliščem, ki ni vsebovano v $S$. Posledično lahko 
         priključimo takšno vozlišče, da dobimo $T$. \hfill $\blacksquare$
     \end{dokaz}
     Naj bo $n = 1$. Potem za moder $K_1$ ne potrebujemo nobene povezave in je pogoj izpolnjen. 
-    Naj bo sedaj $n > 1$. Predpostavimo, da pogoj naloge velja za $n - 1$. Recimo, da imamo neko barvanje povezav grafa $K_{(m-1)(n-1)+1}$ z dvema barvama. 
+    Naj bo sedaj $n > 1$. Predpostavimo, da izrek velja za $n - 1$. Recimo, da imamo neko barvanje povezav grafa $K_{(m-1)(n-1)+1}$ z dvema barvama. 
     \begin{itemize}
         \item Naj bo $v$ poljubno vozlišče. Če ima $v$ več kot $(m-1)(n-2)$ modrih povezav, potem med temi sosedi 
         po indukcijski predpostavki obstaja bodisi rdeč $T$ bodisi moder $K_{n-1}$. V slednjem 
@@ -519,7 +519,7 @@ Naslednji izrek je leta $1977$ dokazal Chvátal.
 \end{definicija}
 
 Trenutno je znanih samo prvih pet Schurovih števil. Zaporedoma so $2$, $5$,
-$14$, $45$ in $161$. Dokaz, da je $S(5) = 161$ iz leta $2017$ je znan največji 
+$14$, $45$ in $161$. Dokaz, da je $S(5) = 161$ iz leta $2017$ je znan kot največji 
 matematični dokaz v smislu porabljenega prostora -- potrebna sta bila 
 kar dva petabajta podatkov. Problem je bil odprt več kot stoletje, več 
 o dokazu pa se nahaja v \cite{schur}.
@@ -539,7 +539,7 @@ V članku smo predstavili nekaj osnovnih pojmov in rezultatov.
     \bibitem{west} D.~B.~West, \emph{Introduction to Graph Theory}, Prentice Hall, 2001.
     \bibitem{r44} \emph{Breakthrough in Ramsey theory}, Spletna stran: https://anthonybonato.com/breakthrough-in-ramsey-theory, ogled 17. 3. 2025.
     \bibitem{r333} \emph{Clebsch graph}, Wikipedia, Spletna stran: https://en.wikipedia.org/wiki/Clebsch\_graph, ogled 29.~1.~2025.
-    \bibitem{wiki} \emph{Ramsey's theorem}, Wipedia, Spletna stran: https://en.wikipedia.org/wiki/Ramsey's\_theorem, ogled: 28.~1.~2025.
+    \bibitem{wiki} \emph{Ramsey's theorem}, Wikipedia, Spletna stran: https://en.wikipedia.org/wiki/Ramsey's\_theorem, ogled: 28.~1.~2025.
 \end{thebibliography}
 
 \end{document}
