@@ -1,0 +1,9 @@
+Članek obravnava osnovne pojme Ramseyeve teorije, kot 
+so Ramseyeva števila, grafovska Ramseyeva števila, Schurova števila in 
+"`The Happy End Problem"'. Med drugim dokaže Ramseyev izrek in nekaj zgornjih ter spodnjih mej za 
+Ramseyevo število $R(r, s)$.
+
+The article discusses the basic concepts of Ramsey theory, 
+such as Ramsey numbers, graph Ramsey numbers, Schur numbers, and 
+The Happy End Problem. Among other results, it proves Ramsey's theorem and presents some upper 
+and lower bounds for the Ramsey number $R(r,s)$.
