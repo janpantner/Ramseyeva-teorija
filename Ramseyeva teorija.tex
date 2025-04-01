@@ -70,7 +70,7 @@ predstavljeno tudi zgodovinsko ozadje razvoja Ramseyeve teorije.
 \end{zgled}
 
 Zgornji zgled je eden izmed enostavnejših rezultatov Ramseyeve teorije, vendar v nadaljevanju
-za lažje razumevanje, izjave raje formuliramo v jeziku teorije grafov in ne socialne interakcije.
+za lažje razumevanje izjave raje formuliramo v jeziku teorije grafov in ne socialne interakcije.
 
 Kot zanimivost lahko omenimo, da se Ramsey v 
 resnici ni ukvarjal niti z grafi niti s socialnimi interakcijami, temveč z logiko. Izrek, po katerem 
@@ -88,7 +88,7 @@ Paul~Erdős.
 \end{izrek}
 
 Številu $R(r, s)$ pravimo \emph{Ramseyevo število}.
-Iz definicije takoj sledi $R(r, s) = R(s, r)$ in $R(2, n) = n$.
+Iz definicije sledi $R(r, s) = R(s, r)$ in $R(2, n) = n$.
 
 
 Alternativna formulacija zgornjega izreka bi bila, da vsak graf na $n$ točkah vsebuje 
@@ -189,7 +189,7 @@ naslednji zgled.
 
 \begin{dokaz}
     Uporabimo dvojno indukcijo, po $r$ in še po $a_1 + a_2$. 
-    V primeru $r = 1$ velja $R(a_1, a_2; 1) = a_1 + a_2 -1$. Recimo, da je $a_1 \ge a_2$. Potem je 
+    V primeru $r = 1$ velja \[R(a_1, a_2; 1) = a_1 + a_2 -1.\] Recimo, da je $a_1 \ge a_2$. Potem je 
     $R(a_1, a_2; a_2) = a_1$. Sedaj predpostavimo, da izrek velja za $r-1$ in ga dokažimo za $r$.
     Naj bo
     \begin{align*}
@@ -376,7 +376,7 @@ Najnovejša sprememba v tabeli se je zgodila decembra leta $2023$, ko je bil obj
 O tem rezultatu govori \cite{r41}.
 
 Vidimo, da je v resnici znanih zelo malo Ramseyevih števil. Če želimo dokazati, 
-da je $R(s, t) = N$, moramo najti ustrezno barvanje povezav grafa $K_{N-1}$ in pokazati, da 
+da velja enakost $R(s, t) = N$, moramo najti ustrezno barvanje povezav grafa $K_{N-1}$ in pokazati, da 
 vsa barvanja povezav grafa $K_{N}$ ustrezajo nekemu pogoju. V teoriji bi lahko uporabili računalnik 
 in preverili vsa možna barvanja za zaporedne $n$, dokler ne najdemo prvega $N$, pri katerem vsako 
 barvanje zadošča zahtevanemu pogoju. Že v primeru dveh barv postane število barvanj zelo hitro 
@@ -388,8 +388,8 @@ veliko manj.
     pokaže $R(4, 4) > 17$.
     \begin{figure}[h!]
         \centering
-        \includegraphics[scale=0.4]{r44.jpg}
-        \caption{Barvanje $K_{17}$ z dvema barvama, ki ne vsebuje monokromatičnega $K_4$. Vir: \cite{r44}}
+        \includegraphics[scale=0.125]{K17.png}
+        \caption{Barvanje $K_{17}$ z dvema barvama, ki ne vsebuje monokromatičnega $K_4$.}
         \label{fig:r44}
     \end{figure}
 \end{zgled}
@@ -446,25 +446,30 @@ Naslednji izrek je leta $1977$ dokazal Chvátal.
     Naj bo $T$ drevo na $m$ vozliščih. Potem je $R(T, K_n) = (m-1)(n-1)+1$.    
 \end{izrek}
 
+V dokazu izreka bomo potrebovali sledečo lemo.
+
+\begin{lema}
+    Naj bo $m \ge 2$. Če je $H$ graf z minimalno stopnjo vsaj $m-1$, potem vsebuje vsako drevo na $m$ vozliščih.
+    \label{lema:drevo}
+\end{lema}
 \begin{dokaz}
-    Za dokaz spodnje meje pobarvamo graf $K_{(m-1)(n-1)}$ tako, da bo rdeč del enak 
+    Lemo dokažemo s pomočjo indukcije na $m$. V primeru $m=2$ je pogoj izpolnjen. Naj bo 
+    $T$ drevo na $m > 2$ vozliščih in predpostavimo, da lema velja za $m-1$. Naj bo $H$ 
+    graf z minimalno stopnjo vsaj $m-1$ in $T$ drevo na $m$ vozliščih. Naj bo $v$ list drevesa. 
+    Tedaj $H$ vsebuje $S = T - v$. Velja $\abs{S} = {m-1}$, torej je vsako vozlišče 
+    $v \in S$ povezano s kakšnim vozliščem, ki ni vsebovano v $S$. Posledično lahko 
+    priključimo takšno vozlišče, da dobimo $T$. \hfill $\blacksquare$
+\end{dokaz}
+
+\noindent\textit{Dokaz izreka.}
+    Za dokaz spodnje meje pobarvamo graf $K_{(m-1)(n-1)}$ tako, da bo rdeč del grafa enak 
     $(n-1)K_{m-1}$ (torej imamo $n-1$ disjunktnih rdečih grafov $K_{m-1}$). Rdeče povezane komponente 
     bodo tedaj velikosti $m-1$, torej graf ne vsebuje rdečega drevesa velikosti $m$. Poln moder 
     podgraf lahko vsebuje kvečjemu eno povezavo iz vsakega disjunktnega $K_{m-1}$, torej je 
     velikosti kvečjemu $n-1$.
 
-    Zgornjo mejo dokažemo z indukcijo na $n$, pri čemer si pomagamo z naslednjo znano lemo.
-    \begin{lema*}
-        Naj bo $m \ge 2$. Če je $H$ graf z minimalno stopnjo vsaj $m-1$, potem vsebuje vsako drevo na $m$ vozliščih.
-    \end{lema*}
-    \begin{dokaz}
-        Lemo dokažemo s pomočjo indukcije na $m$. V primeru $m=2$ je pogoj izpolnjen. Naj bo 
-        $T$ drevo na $m > 2$ vozliščih in predpostavimo, da lema velja za $m-1$. Naj bo $H$ 
-        graf z minimalno stopnjo vsaj $m-1$ in $T$ drevo na $m$ vozliščih. Naj bo $v$ list drevesa. 
-        Tedaj $H$ vsebuje $S = T - v$. Velja $\abs{S} = {m-1}$, torej je vsako vozlišče 
-        $v \in S$ povezano s kakšnim vozliščem, ki ni vsebovano v $S$. Posledično lahko 
-        priključimo takšno vozlišče, da dobimo $T$. \hfill $\blacksquare$
-    \end{dokaz}
+    Zgornjo mejo dokažemo z indukcijo na $n$.
+    
     Naj bo $n = 1$. Potem za moder $K_1$ ne potrebujemo nobene povezave in je pogoj izpolnjen. 
     Naj bo sedaj $n > 1$. Predpostavimo, da izrek velja za $n - 1$. Recimo, da imamo neko barvanje povezav grafa $K_{(m-1)(n-1)+1}$ z dvema barvama. 
     \begin{itemize}
@@ -472,12 +477,11 @@ Naslednji izrek je leta $1977$ dokazal Chvátal.
         po indukcijski predpostavki obstaja bodisi rdeč $T$ bodisi moder $K_{n-1}$. V slednjem 
         primeru skupaj z vozliščem $v$ dobimo $K_n$, sicer pa že imamo rdeč $T$.
         \item Recimo, da ima vsako vozlišče kvečjemu $(m-1)(n-2)$ modrih povezav in posledično 
-        vsaj $m-1$ rdečih povezav. V tem primeru nam zgornja lema zagotovi rdeč $T$. Pri tem 
+        vsaj $m-1$ rdečih povezav. V tem primeru nam lema \ref{lema:drevo} zagotovi rdeč $T$. Pri tem 
         moramo paziti samo na primer $m = 1$, vendar v tem primeru ponovno ne potrebujemo 
         nobene povezave, da je pogoj izpolnjen.
     \end{itemize}
     Zagotovo se bo zgodila ena od teh dveh možnosti, torej smo končali.  \hfill $\blacksquare$
-\end{dokaz}
 
 \section{Schurova števila}
 
@@ -529,6 +533,7 @@ o dokazu pa se nahaja v \cite{schur}.
 katerem letno prihaja do novih spoznanj. 
 V članku smo predstavili nekaj osnovnih pojmov in rezultatov.
 
+\newpage
 \begin{thebibliography}{99}
     \bibitem{r41} V.~Angeltveit, \emph{R(3,10) <= 41}, 2024, arXiv:2401.00392 [math.CO].
     \bibitem{erdos} P.~Erdös. \emph{Some Remarks on the Theory of Graphs}. Bulletin of the
@@ -537,7 +542,6 @@ V članku smo predstavili nekaj osnovnih pojmov in rezultatov.
     \bibitem{color} A.~Soifer, \emph{The Mathematical Coloring Book: Mathematics of Coloring and the Colorful Life of its Creators},
     Springer, 2009.
     \bibitem{west} D.~B.~West, \emph{Introduction to Graph Theory}, Prentice Hall, 2001.
-    \bibitem{r44} \emph{Breakthrough in Ramsey theory}, Spletna stran: https://anthonybonato.com/breakthrough-in-ramsey-theory, ogled 17. 3. 2025.
     \bibitem{r333} \emph{Clebsch graph}, Wikipedia, Spletna stran: https://en.wikipedia.org/wiki/Clebsch\_graph, ogled 29.~1.~2025.
     \bibitem{wiki} \emph{Ramsey's theorem}, Wikipedia, Spletna stran: https://en.wikipedia.org/wiki/Ramsey's\_theorem, ogled: 28.~1.~2025.
 \end{thebibliography}
